@@ -1,18 +1,14 @@
-var Flocktory = new Marionette.Application();
+/** @jsx React.DOM */
+$.ajax({
+  url: 'https://gist.githubusercontent.com/heydiplo/b1296495b5db998f0b4d/raw/afb3efee16797b5fed44966370d0750eb1fe9e46/data.json',
+  dataType: 'json',
+  success: function (resp) {
+    var companies = resp;
 
-Flocktory.addRegions({
-  listRegion:    '.company-list-region',
-  compareRegion: '.company-compare-region'
-});
+    React.renderComponent(<CompaniesTable companies={companies} /> , document.getElementById('company-list') );
+  },
 
+  error: function (resp) {
 
-Flocktory.addInitializer(function () {
-  var fetchingCompanies = Flocktory.request('company:entities');
-
-  /* Показать список */
-  $.when( fetchingCompanies).done( function (companies) {
-    var listView = new Flocktory.Views.CompanyList({ collection: companies, show: 5});
-
-    Flocktory.listRegion.show( listView );
-  });
+  }
 });

@@ -1,36 +1,33 @@
-Flocktory.module('Views', function (Views, Flocktory, Backbone, Marionette, $, _) {
+/** @jsx React.DOM */
+var CompaniesItemRow = React.createClass({
+  render: function () {
+    return (
+      <tr>
+        <td>{this.props.company.id}</td>
+        <td>{this.props.company.title}</td>
+      </tr>
+    )
+  }
+});
 
-  Views.Company = Marionette.ItemView.extend({
-    tagName: 'tr',
+var CompaniesTable = React.createClass({
+  render: function() {
+    var companyRows = [];
 
-    template: _.template('<td><%- id %></td>\
-      <td><%- title %></td>\
-      <td class="text-center"><%- metrics.offers %></td>\
-      <td class="text-center"><%- metrics.shares %></td>\
-      <td class="text-center"><%- metrics.landings %></td>\
-      <td class="text-center"><%- metrics.leads %></td>\
-      <td class="text-center"><%- metrics.purchases %></td>\
-      <td class="text-center"><%- metrics.friends %></td>')
-  });
+    this.props.companies.forEach( function (company) {
+      companyRows.push( <CompaniesItemRow company={company} /> );
+    });
 
-  Views.CompanyList = Marionette.CompositeView.extend({
-    childView: Views.Company,
-
-    childViewContainer: '.company-list',
-
-    template: _.template('<h3>Companies</h3>\
-    <table class="table table-striped">\
-      <tr>\
-        <th>#</th>\
-        <th>title</th>\
-        <th class="text-center">offers</th>\
-        <th class="text-center">shares</th>\
-        <th class="text-center">landings</th>\
-        <th class="text-center">leads</th>\
-        <th class="text-center">purchases</th>\
-        <th class="text-center">friends</th>\
-      </tr>\
-    <tbody class="company-list"></tbody>\
-    </table>')
-  });
+    return (
+      <table className="table table-striped">
+        <tr>
+          <th>#</th>
+          <th>title</th>
+        </tr>
+        <tbody>
+          {companyRows}
+        </tbody>
+      </table>
+    );
+  }
 });

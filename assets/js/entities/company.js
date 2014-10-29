@@ -8,7 +8,7 @@ Flocktory.module('Entities', function (Entities, Flocktory, Backbone, Marionette
   });
 
   Entities.CompanyList = Backbone.Collection.extend({
-    url: 'https://gist.githubusercontent.com/heydiplo/b1296495b5db998f0b4d/raw/afb3efee16797b5fed44966370d0750eb1fe9e46/data.json?limit=9',
+    url: 'https://gist.githubusercontent.com/heydiplo/b1296495b5db998f0b4d/raw/afb3efee16797b5fed44966370d0750eb1fe9e46/data.json',
 
     model: Entities.Company
   });
