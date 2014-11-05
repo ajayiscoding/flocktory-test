@@ -5,10 +5,6 @@ $.ajax({
   success: function (resp) {
     var companies = resp;
 
-    React.renderComponent(<CompaniesTable companies={companies} /> , document.getElementById('company-list') );
-  },
-
-  error: function (resp) {
-
+    React.renderComponent(<CompaniesStatistics companies={companies} /> , document.getElementById('app') );
   }
 });

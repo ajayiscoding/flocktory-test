@@ -1,0 +1,59 @@
+html, body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  height: 100%;
+}
+
+.company-item{
+  cursor: pointer;
+}
+
+.aside{
+  width: 30%;
+  padding: 0 15px 15px 25px;
+  position: relative;
+  height: 100%;
+}
+
+.content{
+  width: 65%;
+}
+
+.aside, .content{
+  margin-top: 10px;
+}
+
+.company-list{
+  position: absolute;
+  top: 0;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  overflow: auto;
+}
+
+.company-compare__graph{
+  display: none;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #8ac375;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke: #fff;
+}
+
+.legend rect {
+  fill: white;
+  stroke: black;
+  opacity: 0.8;
+}
